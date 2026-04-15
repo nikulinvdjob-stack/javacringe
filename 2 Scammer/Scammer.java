@@ -8,17 +8,17 @@ public class Scammer {
         int min;
         int max;
 
-        //
+        //определяем возраст жертвы
         min = 1;
         max = 100;
         int victimAge = min + random.nextInt(max - min);
 
-        //
+        //определяем баланс жертвы
         min = 0;
         max = 1000000;
         double  victimCurrentBalance   = min + (max - min) * random.nextDouble();
 
-        //
+        //определяем приглашен ли и занесен ли в черный список
         boolean victimIsInvited = Math.random() < 0.5;
         boolean victimIsInBlackList = Math.random() < 0.5;
 
