@@ -33,7 +33,7 @@ public class Scammer {
             victimCurrentBalance,
             victimIsInvited,
             victimIsInBlackList,
-            victimAge >= 18 & victimCurrentBalance > 50000 & victimIsInvited & !victimIsInBlackList
+            victimAge >= 18 & victimCurrentBalance > 50000 & victimIsInvited | !victimIsInBlackList
         );
         
         System.out.println("");
