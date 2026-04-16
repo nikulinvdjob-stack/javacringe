@@ -10,7 +10,7 @@ public class Scammer {
         int max;
 
         //определеяем условия для вступления
-        byte inviteReqMinAge   = 18;
+        byte inviteReqMinAge    = 18;
         int inviteReqMinBalance = 50000;
 
         //определяем возраст жертвы
