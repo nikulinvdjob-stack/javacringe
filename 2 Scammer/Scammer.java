@@ -9,6 +9,10 @@ public class Scammer {
         int min;
         int max;
 
+        //определеяем условия для вступления
+        byte inviteReqMinAge   = 18;
+        int inviteReqMinBalance = 50000;
+
         //определяем возраст жертвы
         min = 1;
         max = 100;
@@ -16,7 +20,7 @@ public class Scammer {
 
         //определяем баланс жертвы
         min = 0;
-        max = 1000000;
+        max = inviteReqMinBalance * 2;
         double  victimCurrentBalance = min + (max - min) * random.nextDouble();
 
         //определяем приглашен ли и занесен ли в черный список
@@ -28,7 +32,10 @@ public class Scammer {
         double resultVictimFee  = victimCurrentBalance * inviteFeeAmount;
 
         //определяем результат, проходит ли жертва
-        boolean resultIsVictimViable = victimAge >= 18 & victimCurrentBalance > 50000 & victimIsInvited | !victimIsInBlackList;
+        boolean resultIsVictimViable =
+            victimAge >= inviteReqMinAge &
+            (victimCurrentBalance > inviteReqMinBalance | victimIsInvited) &
+            !victimIsInBlackList;
 
         String message = String.format(
             "Возраст жертвы: %d\n" +
