@@ -16,7 +16,7 @@ public class Scammer {
         //определяем возраст жертвы
         min = 1;
         max = 100;
-        int victimAge = min + random.nextInt(max - min);
+        int victimAge = min + random.nextInt(max - min + 1);
 
         //определяем баланс жертвы
         min = 0;
