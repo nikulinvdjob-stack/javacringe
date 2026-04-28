@@ -71,6 +71,56 @@ public class HomeWork_31 {
         String[] getShoppingCart() {
             return this.shoppingCart;
         }
+
+        //собираем предметы со всех корзин в один массив (только уникальные)
+        static String[] GetDistinctShoppingCart(Customer[] customers) {
+            //объединяем три массива корзин с продуктами в один большой массив
+            return Stream.of(customers)
+                    .map(Customer::getShoppingCart)
+                    .flatMap(Arrays::stream)
+                    .distinct()
+                    .toArray(String[]::new);
+        }
+
+        //Возвращаем среднюю длину товаров по всем потребкорзинам
+        static double GetAverageItemNameLength(Customer[] customers) {
+            String[] allShoppingCarts = GetDistinctShoppingCart(customers);
+
+            double marketingResearchAvrItemName = 0;
+            for (var i = 0; i < allShoppingCarts.length; i++) {
+                marketingResearchAvrItemName += allShoppingCarts[i].length();
+            }
+
+            return marketingResearchAvrItemName / allShoppingCarts.length;
+        }
+
+        //Возвращаем товар с самым коротким названием
+        static String GetShortestItemName(Customer[] customers) {
+            String[] allShoppingCarts = GetDistinctShoppingCart(customers);
+            String marketingResearchItemWithShortestName = allShoppingCarts[0];
+
+            for (var i = 0; i < allShoppingCarts.length; i++) {
+                if (allShoppingCarts[i].length() < marketingResearchItemWithShortestName.length()) {
+                    marketingResearchItemWithShortestName = allShoppingCarts[i];
+                }
+            }
+
+            return marketingResearchItemWithShortestName;
+        }
+
+        //Возвращаем товар с самым длинным названием
+        static String GetLongestItemName(Customer[] customers) {
+            String[] allShoppingCarts = GetDistinctShoppingCart(customers);
+            String marketingResearchItemWithLongestName = allShoppingCarts[0];
+
+            for (var i = 0; i < allShoppingCarts.length; i++) {
+                if (allShoppingCarts[i].length() > marketingResearchItemWithLongestName.length()) {
+                    marketingResearchItemWithLongestName = allShoppingCarts[i];
+                }
+            }
+
+            return marketingResearchItemWithLongestName;
+        }
     }
 
     static void main(String[] args) {
@@ -124,43 +174,17 @@ public class HomeWork_31 {
                 (result ? "✅ Да" : "❌ Нет"));
 
         //Задание 1.3
-
-        //объедениям три массива корзин с продуктами в один большой массив
-        String[] allShoppingCarts = Stream.of(
-                        customers[CustomerNames.Kolya.ordinal()].getShoppingCart(),
-                        customers[CustomerNames.Petya.ordinal()].getShoppingCart(),
-                        customers[CustomerNames.Terentiy.ordinal()].getShoppingCart()
-                )
-                .flatMap(Arrays::stream)
-                .distinct()
-                .toArray(String[]::new);
-
-        int[] marketingResearch = new int[allShoppingCarts.length];
-
-        String marketingResearchItemWithLongestName = allShoppingCarts[0];
-        String marketingResearchItemWithShortestName = allShoppingCarts[0];
-        double marketingResearchAvrItemName = 0;
-
-        for (var i = 0; i < allShoppingCarts.length; i++) {
-            if (allShoppingCarts[i].length() > marketingResearchItemWithLongestName.length()) {
-                marketingResearchItemWithLongestName = allShoppingCarts[i];
-            }
-
-            if (allShoppingCarts[i].length() < marketingResearchItemWithShortestName.length()) {
-                marketingResearchItemWithShortestName = allShoppingCarts[i];
-            }
-
-            marketingResearchAvrItemName += allShoppingCarts[i].length();
-        }
-        marketingResearchAvrItemName /= allShoppingCarts.length;
+        String marketingResearchItemWithLongestName = Customer.GetLongestItemName(customers);
+        String marketingResearchItemWithShortestName = Customer.GetShortestItemName(customers);
+        double marketingResearchAverageItemName = Customer.GetAverageItemNameLength(customers);
 
         System.out.println("Предметы принимавшие участие в маркетинговом исследовании: " +
-                Arrays.deepToString(allShoppingCarts));
+                Arrays.deepToString(Customer.GetDistinctShoppingCart(customers)));
         System.out.println("Результат маркетингового исследования: Предмет с самым длинным названием 📏: " +
                 marketingResearchItemWithLongestName);
         System.out.println("Результат маркетингового исследования: Предмет с самым коротким названием 📏: " +
                 marketingResearchItemWithShortestName);
         System.out.println("Результат маркетингового исследования: Средняя длина названия 📏: " +
-                marketingResearchAvrItemName);
+                marketingResearchAverageItemName);
     }
 }
