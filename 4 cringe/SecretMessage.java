@@ -26,7 +26,7 @@ public class SecretMessage {
 
             userInput = scanner.nextLine();
             encryptedMessage.append(
-                    userInput.equalsIgnoreCase("NULL") ? triggerWarning() : userInput
+                    userInput.equalsIgnoreCase("NULL") || userInput.isEmpty() ? triggerWarning() : userInput
             );//проверка на ввод null
 
             i++;

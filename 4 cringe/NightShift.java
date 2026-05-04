@@ -43,10 +43,10 @@ public class NightShift {
 
     static void main() {
 
-        String configOutFormat = "Test #%d: %s\n";
+        String statusOutFormat = "Test #%d: %s\n";
         String testStatus;
         boolean outIsEnabled;
-        int criticalsNumber = 0;
+        int[] statusNumber = new int[TestStatusNames.values().length];
 
         for (int i = 1; i <= configAutoTestNumber; i++) {
             outIsEnabled = true;
@@ -58,17 +58,37 @@ public class NightShift {
                     outIsEnabled = false;
 
             if (outIsEnabled)
-                System.out.printf(String.format(configOutFormat, i, getTestStatus(i)));
+                System.out.printf(String.format(statusOutFormat, i, getTestStatus(i)));
+
+            if (testStatus.equals(TestStatusNames.FLAKY.getName()))
+                statusNumber[TestStatusNames.FLAKY.ordinal()]++;
+            if (testStatus.equals(TestStatusNames.BUG.getName()))
+                statusNumber[TestStatusNames.BUG.ordinal()]++;
+            if (testStatus.equals(TestStatusNames.CRITICAL.getName()))
+                statusNumber[TestStatusNames.CRITICAL.ordinal()]++;
+            if (testStatus.equals(TestStatusNames.PASS.getName()))
+                statusNumber[TestStatusNames.PASS.ordinal()]++;
 
             //Стоп-сигнал
-            if (configStopSignalEnabled) {
-                if (testStatus.equals(TestStatusNames.CRITICAL.getName()))
-                    criticalsNumber++;
-
-                if (criticalsNumber == configStopSignalNumber)
+            if (configStopSignalEnabled)
+                if (statusNumber[TestStatusNames.CRITICAL.ordinal()] == configStopSignalNumber)
                     break;
-            }
         }
+
+        String resultOutFormat =
+                "===== ИТОГИ НОЧНОЙ СМЕНЫ =====\n" +
+                        "Всего тестов: %d\n" +
+                        "Pass: %d\n" +
+                        "Flaky: %d\n" +
+                        "Bug: %d\n" +
+                        "Critical: %d";
+
+        System.out.printf(String.format(resultOutFormat,
+                configAutoTestNumber,
+                statusNumber[TestStatusNames.PASS.ordinal()],
+                statusNumber[TestStatusNames.FLAKY.ordinal()],
+                statusNumber[TestStatusNames.BUG.ordinal()],
+                statusNumber[TestStatusNames.CRITICAL.ordinal()]));
 
     }
 }
