@@ -28,7 +28,7 @@ public class AlfaLab {
         Random random = new Random(seed);
         int min = 1000;
         int max = 9999;
-        return String.format("[PREFIX] {%s}",
+        return String.format("{" + prefix + "}-{%s}",
                 random.nextInt((max - min) + 1) + min);
     }
 
