@@ -24,6 +24,6 @@ public class FragileParcel extends Parcel {
 
     public void printInfo() {
         super.printInfo();
-        System.out.printf("Handle with care: %b\n", this.requiresCarefulHandling);
+        System.out.printf("Handle with care: %b%n", this.requiresCarefulHandling);
     }
 }

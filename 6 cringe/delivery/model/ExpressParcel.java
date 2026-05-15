@@ -24,6 +24,6 @@ public class ExpressParcel extends Parcel {
 
     public void printInfo() {
         super.printInfo();
-        System.out.printf(String.format("Delivery deadline: %d\n", this.deliveryHours));
+        System.out.printf(String.format("Delivery deadline: %d%n", this.deliveryHours));
     }
 }

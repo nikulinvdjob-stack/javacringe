@@ -49,10 +49,10 @@ public class Parcel {
 
     public void printInfo() {
         System.out.printf(String.format(
-                "Имя получателя: %s\n" +
-                "Адрес получателя: %s\n" +
-                "Вес поссылки: %.2f\n" +
-                "Трек Номер: %s\n",
+                "Имя получателя: %s%n" +
+                "Адрес получателя: %s%n" +
+                "Вес поссылки: %.2f%n" +
+                "Трек Номер: %s%n",
                 this.recipientName,
                 this.recipientAddress,
                 this.weight,

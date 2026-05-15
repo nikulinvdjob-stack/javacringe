@@ -7,7 +7,7 @@ import delivery.service.ParcelService;
 
 import java.util.Random;
 
-public class app {
+public class Main {
 
     static double generateW8 () {
         Random random = new Random();
