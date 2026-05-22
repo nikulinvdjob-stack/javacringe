@@ -95,6 +95,7 @@ public class Game {
                 Game.Fight();
                 break;
             case 3:
+                System.out.println("Конец.");
                 break;
         }
 
@@ -126,14 +127,22 @@ public class Game {
 
             int heroDamage = hero.getLevel() + getRandomRange(0, hero.getLevel() + enemy.getLevel() * 5);
             int enemyDamage = enemy.getLevel() + getRandomRange(-enemy.getLevel(), enemy.getLevel());
+            int attackCounts = 1 + getRandomRange(0, 1) * getRandomRange(0, 5);
 
             switch (heroAction) {
                 case 1:
-                    hero.attack();
-                    enemy.takeDamage(heroDamage);
+
+                    if (attackCounts == 1) {
+                        hero.attack();
+                        enemy.takeDamage(heroDamage);
+                    }
+                    else {
+                        hero.attack(enemy.getName(), attackCounts);
+                        enemy.takeDamage(heroDamage * attackCounts);
+                    }
 
                     System.out.printf(String.format(
-                            "Вы ударили и нанесли %d урона.%n" +
+                            "Вы нанесли %d урона.%n" +
                             "Здоровье противника: %s%n",
                             heroDamage,
                             App.getStringProgressBar(enemy.getHealth(), enemy.getHealthMax(), "hp")));
@@ -145,7 +154,7 @@ public class Game {
                     } else {
                         hero.takeDamage(enemyDamage);
                         System.out.printf(String.format(
-                                "Вас ударили и нанесли %d урона%n",
+                                "Вам нанесли %d урона%n",
                                 enemyDamage));
                     }
                     break;
