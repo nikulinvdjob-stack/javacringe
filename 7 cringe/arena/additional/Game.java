@@ -126,7 +126,8 @@ public class Game {
 
         int heroAction = 0;
         int heroDamage = hero.getLevel() + getRandomRange(0, hero.getLevel() + enemy.getLevel() * 5);
-        heroDamage *= hero instanceof Knight ? 1 : 2;
+        heroDamage *= (hero instanceof Knight ? 1 : 2) *
+                (hero instanceof Archer ? (getRandomRange(0, 1) == 0 ? 2 : 1) : 1);
         int enemyDamage = enemy.getLevel() + getRandomRange(-enemy.getLevel(), enemy.getLevel());
 
         do {
