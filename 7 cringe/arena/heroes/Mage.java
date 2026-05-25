@@ -34,8 +34,10 @@ public class Mage extends Hero {
         if (mana >= MANA_PER_HIT) {
             mana -= MANA_PER_HIT;
             attack();
+            return true;
         } else {
             System.out.println(MAGE_NO_MANA_LEFT);
+            return false;
         }
     }
 
