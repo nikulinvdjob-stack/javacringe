@@ -35,8 +35,8 @@ public class Archer extends Hero {
 
     public void attack(boolean isInTheGame) {
         if (arrowCount > 0) {
-            attack();
             arrowCount--;
+            attack();
         } else {
             System.out.println(ARCHER_NO_ARROWS_LEFT);
         }
