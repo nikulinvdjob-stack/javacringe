@@ -11,7 +11,7 @@ public abstract class Hero {
     static int heroesCreated;
 
     static final String HERO_REST_ALERT = "Герой отдыхает и восстаналивает силы.\n";
-    static final String HERO_ATTACK_ALERT = "Герой наносит обычный удар!\n!";
+    static final String HERO_ATTACK_ALERT = "Герой наносит обычный удар!\n";
     static final String HERO_TARGET_ATTACK_ALERT = "Герой наносит обычный удар. 🎯Цель: %s%n%n";
     static final String HERO_TARGET_MULTI_ATTACK_ALERT = "Герой атакует цель 🎯Цель: %s %d раз!%n%n";
     static final String HERO_INFO_ALERT ="🏷️ Имя героя: %s%n💪 Уровень героя: %s | (%d/%d)%n❤️ Текущее здоровье: %s | (%.2f/%.2f)%n%n";
