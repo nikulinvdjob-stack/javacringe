@@ -136,11 +136,11 @@ public class Game {
 
             switch (heroAction) {
                 case 1:
-                    if (hero.attack(true))
+                    if (hero.attack(true)) {
                         enemy.takeDamage(heroDamage);
-
-                    System.out.printf(HERO_DAMAGE_ALERT, heroDamage,
-                            App.getStringProgressBar(enemy.getHealth(), enemy.getMaxHealth(), "hp"));
+                        System.out.printf(HERO_DAMAGE_ALERT, heroDamage,
+                                App.getStringProgressBar(enemy.getHealth(), enemy.getMaxHealth(), "hp"));
+                    }
 
                     if (enemy.getHealth() == 0) {
                         System.out.println(LEVEL_UP_ALERT);
