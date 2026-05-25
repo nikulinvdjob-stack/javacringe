@@ -144,8 +144,8 @@ public class Game {
                         hero.levelUp();
                         Game.ChooseAction();
                     } else {
-                        hero.takeDamage(enemyDamage);
                         System.out.printf(ENEMY_DAMAGE_ALERT, enemyDamage);
+                        hero.takeDamage(enemyDamage);
                     }
                     break;
                 case 2:
