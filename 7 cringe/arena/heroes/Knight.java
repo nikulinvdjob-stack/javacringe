@@ -30,7 +30,7 @@ public class Knight extends Hero {
 
     @Override
     public void takeDamage(int damage) {
-        float reducedDamage = damage * (1 - armor/100);
+        float reducedDamage = damage * armor/100;
         System.out.printf(KNIGHT_TAKE_DAMAGE_ALERT, reducedDamage);
         setHealth(Math.max(getHealth() - (damage - reducedDamage), 0));
     }
