@@ -126,6 +126,7 @@ public class Game {
 
         int heroAction = 0;
         int heroDamage = hero.getLevel() + getRandomRange(0, hero.getLevel() + enemy.getLevel() * 5);
+        heroDamage *= hero instanceof Knight ? 1 : 2;
         int enemyDamage = enemy.getLevel() + getRandomRange(-enemy.getLevel(), enemy.getLevel());
 
         do {
@@ -134,7 +135,9 @@ public class Game {
 
             switch (heroAction) {
                 case 1:
-                    hero.attack(true);
+                    if (hero.attack(true))
+                        enemy.takeDamage(heroDamage);
+
                     System.out.printf(HERO_DAMAGE_ALERT, heroDamage,
                             App.getStringProgressBar(enemy.getHealth(), enemy.getMaxHealth(), "hp"));
 

@@ -24,15 +24,15 @@ public class Knight extends Hero {
         updateArmor();
     }
 
-    public void updateArmor() {
-        armor = KNIGHT_MAX_ARMOR * getLevel()/Hero.MAX_LEVEL;
-    }
-
     @Override
     public void takeDamage(int damage) {
         float reducedDamage = damage * armor/100;
         System.out.printf(KNIGHT_TAKE_DAMAGE_ALERT, reducedDamage);
         setHealth(Math.max(getHealth() - (damage - reducedDamage), 0));
+    }
+
+    public void updateArmor() {
+        armor = KNIGHT_MAX_ARMOR * getLevel()/Hero.MAX_LEVEL;
     }
 
     /*@Override

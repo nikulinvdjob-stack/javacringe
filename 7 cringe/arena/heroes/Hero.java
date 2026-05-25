@@ -75,8 +75,9 @@ public abstract class Hero {
         health = maxHealth;
     }
 
-    public void attack(boolean isInTheGame) {
+    public boolean attack(boolean isInTheGame) {
         System.out.println(HERO_ATTACK_ALERT);
+        return true;
     }
 
     public int getLevel() {

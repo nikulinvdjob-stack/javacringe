@@ -30,7 +30,7 @@ public class Mage extends Hero {
     }
 
     @Override
-    public void attack(boolean isInTheGame) {
+    public boolean attack(boolean isInTheGame) {
         if (mana >= MANA_PER_HIT) {
             mana -= MANA_PER_HIT;
             attack();

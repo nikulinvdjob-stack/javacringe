@@ -33,12 +33,15 @@ public class Archer extends Hero {
         arrowCount += Math.min(ARROWS_PER_REST, maxArrows);
     }
 
-    public void attack(boolean isInTheGame) {
+    @Override
+    public boolean attack(boolean isInTheGame) {
         if (arrowCount > 0) {
             arrowCount--;
             attack();
+            return true;
         } else {
             System.out.println(ARCHER_NO_ARROWS_LEFT);
+            return false;
         }
     }
 
