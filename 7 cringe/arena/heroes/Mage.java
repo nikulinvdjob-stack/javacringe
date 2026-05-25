@@ -5,6 +5,7 @@ import arena.app.App;
 public class Mage extends Hero {
     private float mana;
     private float maxMana;
+
     static final float MANA_PER_LEVEL = 25;
     static final float MANA_PER_HIT = 5;
 
@@ -14,13 +15,12 @@ public class Mage extends Hero {
     public Mage(String name, int level, float health, float mana) {
         super(name, level, health);
         updateMaxMana();
-        mana = Math.clamp(mana, 0, maxMana);
+        this.mana = Math.clamp(mana, 0, maxMana);
     }
 
     @Override
     public void attack() {
-        System.out.printf(String.format(MAGE_ATTACK_ALERT, App.getStringProgressBar(mana, maxMana, "mana")));
-        System.out.println();
+        System.out.printf(MAGE_ATTACK_ALERT, App.getStringProgressBar(mana, maxMana, "mana"));
     }
 
     @Override

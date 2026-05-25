@@ -4,7 +4,7 @@ public class Knight extends Hero {
     private float armor;
 
     static final float KNIGHT_MAX_ARMOR = 75f;
-    static final String KNIGHT_ATTACK_ALERT = "Рыцарь бьет мечом!";
+    static final String KNIGHT_ATTACK_ALERT = "Рыцарь бьет мечом!\n";
 
     public Knight(String name, int level, float health, float armor) {
         super(name, level, health);
@@ -15,7 +15,6 @@ public class Knight extends Hero {
     @Override
     public void attack() {
         System.out.println(KNIGHT_ATTACK_ALERT);
-        System.out.println();
     }
 
     @Override

@@ -18,7 +18,7 @@ public class Archer extends Hero {
 
     @Override
     public void attack() {
-        System.out.printf(String.format(ARCHER_ATTACK_ALERT, arrowCount));
+        System.out.printf(ARCHER_ATTACK_ALERT, arrowCount);
     }
 
     @Override
