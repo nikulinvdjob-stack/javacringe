@@ -7,7 +7,7 @@ public class Archer extends Hero {
     static final int ARROWS_PER_REST = 5;
     static final int ARROWS_PER_LEVEL = 2;
 
-    static final String ARCHER_ATTACK_ALERT = "Лучник выпускает стрелу!\n";
+    static final String ARCHER_ATTACK_ALERT = "Лучник выпускает стрелу! Осталось стрел: %d%n%n";
     static final String ARCHER_NO_ARROWS_LEFT = "🚨Нет стрел, нужно отдохнуть!\n";
 
     public Archer(String name, int level, float health, int arrowCount) {
@@ -18,7 +18,7 @@ public class Archer extends Hero {
 
     @Override
     public void attack() {
-        System.out.println(ARCHER_ATTACK_ALERT);
+        System.out.printf(String.format(ARCHER_ATTACK_ALERT, arrowCount));
     }
 
     @Override
@@ -35,7 +35,7 @@ public class Archer extends Hero {
 
     public void attack(boolean isInTheGame) {
         if (arrowCount > 0) {
-            System.out.println(ARCHER_ATTACK_ALERT);
+            attack();
             arrowCount--;
         } else {
             System.out.println(ARCHER_NO_ARROWS_LEFT);

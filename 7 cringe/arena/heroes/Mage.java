@@ -1,12 +1,14 @@
 package arena.heroes;
 
+import arena.app.App;
+
 public class Mage extends Hero {
     private float mana;
     private float maxMana;
     static final float MANA_PER_LEVEL = 25;
     static final float MANA_PER_HIT = 5;
 
-    static final String MAGE_ATTACK_ALERT = "Маг запускает огненный шар!\n";
+    static final String MAGE_ATTACK_ALERT = "Маг запускает огненный шар! Осталось маны:%n%s%n%n";
     static final String MAGE_NO_MANA_LEFT = "🚨Не хватает маны, нужно отдохнуть!\n";
 
     public Mage(String name, int level, float health, float mana) {
@@ -17,7 +19,7 @@ public class Mage extends Hero {
 
     @Override
     public void attack() {
-        System.out.println(MAGE_ATTACK_ALERT);
+        System.out.printf(String.format(MAGE_ATTACK_ALERT, App.getStringProgressBar(mana, maxMana, "mana")));
         System.out.println();
     }
 
@@ -30,8 +32,7 @@ public class Mage extends Hero {
     @Override
     public void attack(boolean isInTheGame) {
         if (mana >= MANA_PER_HIT) {
-            System.out.println(MAGE_ATTACK_ALERT);
-            System.out.println();
+            attack();
             mana -= MANA_PER_HIT;
         } else {
             System.out.println(MAGE_NO_MANA_LEFT);

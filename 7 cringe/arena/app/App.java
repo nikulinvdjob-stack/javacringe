@@ -27,6 +27,10 @@ public class App {
                 barNegativeSegment = "🟥";
                 break;
             case "lvl":
+                barPositiveSegment = "🟨";
+                barNegativeSegment = "⬜";
+                break;
+            case "mana":
                 barPositiveSegment = "🟦";
                 barNegativeSegment = "⬜";
                 break;
