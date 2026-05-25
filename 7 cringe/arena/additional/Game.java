@@ -134,7 +134,6 @@ public class Game {
 
             switch (heroAction) {
                 case 1:
-
                     hero.attack(true);
                     System.out.printf(HERO_DAMAGE_ALERT, heroDamage,
                             App.getStringProgressBar(enemy.getHealth(), enemy.getMaxHealth(), "hp"));
