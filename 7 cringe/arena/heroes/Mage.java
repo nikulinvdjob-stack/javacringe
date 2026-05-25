@@ -32,8 +32,8 @@ public class Mage extends Hero {
     @Override
     public void attack(boolean isInTheGame) {
         if (mana >= MANA_PER_HIT) {
-            attack();
             mana -= MANA_PER_HIT;
+            attack();
         } else {
             System.out.println(MAGE_NO_MANA_LEFT);
         }
