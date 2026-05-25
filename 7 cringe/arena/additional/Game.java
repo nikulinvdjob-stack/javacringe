@@ -34,6 +34,9 @@ public class Game {
                     4 - Убежать🏃""";
     static final String GAME_OVER_ALERT = "😔😔Вас победили, вы убежали домой и легли спать. Позорище.\n";
     static final String LEVEL_UP_ALERT = "🏆Противник побежден, вы прокачались!\n";
+    static final String ENCOUNTER_AN_ENEMY_ALERT = "На вас выскочил дикий %s, на вид он %d уровня!%n%n";
+    static final String HERO_DAMAGE_ALERT = "Вы нанесли %d урона.%n Здоровье противника: %s%n%n";
+    static final String ENEMY_DAMAGE_ALERT = "Вам нанесли %d урона%n%n";
 
     static int getRandomRange(int min,
                               int max) {
@@ -117,7 +120,7 @@ public class Game {
                 START_VALUE);
 
         System.out.printf(String.format(
-                "На вас выскочил дикий %s, на вид он %d уровня!%n%n",
+                ENCOUNTER_AN_ENEMY_ALERT,
                 enemy.getName(),
                 enemy.getLevel()));
 
@@ -141,8 +144,7 @@ public class Game {
                     enemy.takeDamage(heroDamage * attackCounts);
 
                     System.out.printf(String.format(
-                            "Вы нанесли %d урона.%n" +
-                            "Здоровье противника: %s%n%n",
+                            HERO_DAMAGE_ALERT,
                             heroDamage,
                             App.getStringProgressBar(enemy.getHealth(), enemy.getMaxHealth(), "hp")));
 
@@ -152,9 +154,7 @@ public class Game {
                         Game.ChooseAction();
                     } else {
                         hero.takeDamage(enemyDamage);
-                        System.out.printf(String.format(
-                                "Вам нанесли %d урона%n%n",
-                                enemyDamage));
+                        System.out.printf(String.format(ENEMY_DAMAGE_ALERT, enemyDamage));
                     }
                     break;
                 case 2:
