@@ -79,7 +79,7 @@ public class Game {
                     heroName,
                     1,
                     START_VALUE,
-                    10);
+                    (int) START_VALUE);
             break;
         case 3:
             hero = new Mage(

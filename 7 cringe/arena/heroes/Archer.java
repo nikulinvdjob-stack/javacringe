@@ -21,6 +21,18 @@ public class Archer extends Hero {
         System.out.println(ARCHER_ATTACK_ALERT);
     }
 
+    @Override
+    public void levelUp() {
+        super.levelUp();
+        updateMaxArrows();
+    }
+
+    @Override
+    public void rest(boolean isInTheGame) {
+        setHealth(getMaxHealth());
+        arrowCount += Math.min(ARROWS_PER_REST, maxArrows);
+    }
+
     public void attack(boolean isInTheGame) {
         if (arrowCount > 0) {
             System.out.println(ARCHER_ATTACK_ALERT);
@@ -28,12 +40,6 @@ public class Archer extends Hero {
         } else {
             System.out.println(ARCHER_NO_ARROWS_LEFT);
         }
-    }
-
-    @Override
-    public void rest(boolean isInTheGame) {
-        setHealth(getMaxHealth());
-        arrowCount += Math.min(ARROWS_PER_REST, maxArrows);
     }
 
     public void updateMaxArrows() {

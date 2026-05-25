@@ -23,8 +23,7 @@ public class Mage extends Hero {
 
     @Override
     public void levelUp() {
-        setLevel(Math.min(getLevel() + 1, MAX_LEVEL));
-        updateMaxHealth();
+        super.levelUp();
         updateMaxMana();
     }
 

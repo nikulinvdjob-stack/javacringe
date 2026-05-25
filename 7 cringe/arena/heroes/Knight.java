@@ -20,8 +20,7 @@ public class Knight extends Hero {
 
     @Override
     public void levelUp() {
-        setLevel(Math.min(getLevel() + 1, MAX_LEVEL));
-        updateMaxHealth();
+        super.levelUp();
         updateArmor();
     }
 
