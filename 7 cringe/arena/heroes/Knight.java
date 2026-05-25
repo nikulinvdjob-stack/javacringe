@@ -3,15 +3,36 @@ package arena.heroes;
 public class Knight extends Hero {
     private float armor;
 
+    static final float KNIGHT_MAX_ARMOR = 75f;
+    static final String KNIGHT_ATTACK_ALERT = "Рыцарь бьет мечом!";
+
     public Knight(String name, int level, float health, float armor) {
         super(name, level, health);
-        this.armor = armor;
+        updateArmor();
+        armor = Math.clamp(armor, 0, this.armor);
     }
 
     @Override
     public void attack() {
-        System.out.println(Hero.knightAttackAlert);
+        System.out.println(KNIGHT_ATTACK_ALERT);
         System.out.println();
+    }
+
+    @Override
+    public void levelUp() {
+        setLevel(Math.min(getLevel() + 1, MAX_LEVEL));
+        updateMaxHealth();
+        updateArmor();
+    }
+
+    public void updateArmor() {
+        armor = KNIGHT_MAX_ARMOR * getLevel()/Hero.MAX_LEVEL;
+    }
+
+    @Override
+    public void takeDamage(int damage) {
+        float reducedDamage = damage * armor;
+        setHealth(Math.max(getHealth() - reducedDamage, 0));
     }
 
     /*@Override

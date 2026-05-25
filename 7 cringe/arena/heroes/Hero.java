@@ -4,26 +4,25 @@ import arena.app.App;
 
 public abstract class Hero {
 
-    String name;
-    int level;
-    float health;
+    private String name;
+    private int level;
+    private float health;
     static final int MAX_LEVEL = 100;
     static int heroesCreated;
 
-    static final String knightAttackAlert = "Рыцарь бьет мечом!";
-    static final String archerAttackAlert = "Лучник выпускает стрелу!";
-    static final String mageAttackAlert = "Маг запускает огненный шар!";
+    static final String HERO_REST_ALERT = "Герой отдыхает и восстаналивает силы.\n";
+    static final String HERO_ATTACK_ALERT = "Герой наносит обычный удар!\n!";
+    static final String HERO_TARGET_ATTACK_ALERT = "Герой наносит обычный удар. 🎯Цель: %s%n%n";
+    static final String HERO_TARGET_MULTI_ATTACK_ALERT = "Герой атакует цель 🎯Цель: %s %d раз!%n%n";
 
-    float healthMax;
     static final float HP_PER_LEVEL = 25;
-    static final float MANA_PER_LEVEL = 25;
-
+    private float maxHealth;
 
     public Hero(String name, int level, float health) {
         this.name = name;
         this.level = Math.clamp(level, 1, MAX_LEVEL);
-        this.healthMax = this.level * HP_PER_LEVEL;
-        this.health = Math.clamp(health, 0, healthMax);
+        updateMaxHealth();
+        this.health = Math.clamp(health, 0, maxHealth);
         heroesCreated++;
 
     }
@@ -33,45 +32,52 @@ public abstract class Hero {
                 "🏷️ Имя героя: %s%n" +
                 "💪 Уровень героя: %s | (%d/%d)%n" +
                 "❤️ Текущее здоровье: %s | (%.2f/%.2f)%n%n",
-                this.name,
-                App.getStringProgressBar(this.level, MAX_LEVEL, "lvl"),
-                this.level,
+                name,
+                App.getStringProgressBar(level, MAX_LEVEL, "lvl"),
+                level,
                 MAX_LEVEL,
-                App.getStringProgressBar(this.health, this.healthMax, "hp"),
-                this.health,
-                this.healthMax));
+                App.getStringProgressBar(health, maxHealth, "hp"),
+                health,
+                maxHealth));
     }
 
     public void takeDamage(int damage) {
-        this.health = Math.max(health - damage, 0);
+        health = Math.max(health - damage, 0);
     }
 
     public void levelUp() {
-        this.level = Math.min(++level, MAX_LEVEL);
-        this.healthMax = this.level * HP_PER_LEVEL;
+        level = Math.min(++level, MAX_LEVEL);
+        updateMaxHealth();
     }
 
     public void attack() {
-        System.out.println("Герой наносит обычный удар!");
+        System.out.println(HERO_ATTACK_ALERT);
     }
 
     public void attack(String target) {
-        System.out.println("Герой наносит обычный удар. 🎯Цель: " + target);
+        System.out.println(String.format(HERO_TARGET_ATTACK_ALERT, target));
     }
 
     public void attack(String target, int times) {
-        System.out.printf(String.format("Герой атакует цель 🎯Цель: %s %d раз", target, times));
-        System.out.println();
+        System.out.printf(String.format(HERO_TARGET_MULTI_ATTACK_ALERT, target, times));
     }
 
     public static void printHeroesCreated() {
-        System.out.println("Всего создано героев: " + heroesCreated);
+        System.out.println("Всего создано героев: " + heroesCreated + "\n");
     }
 
     public final void rest() {
-        System.out.println("Герой отдыхает и восстаналивает силы.");
+        System.out.println(HERO_REST_ALERT);
+        health = maxHealth;
+    }
 
-        this.health = this.healthMax;
+    public void rest(boolean isInTheGame) {
+        System.out.println(HERO_REST_ALERT);
+        health = maxHealth;
+    }
+
+    public void attack(boolean isInTheGame) {
+        System.out.println(HERO_ATTACK_ALERT);
     }
 
     public int getLevel() {
@@ -79,14 +85,31 @@ public abstract class Hero {
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public float getHealth() {
         return health;
     }
 
-    public float getHealthMax() {
-        return healthMax;
+    public float getMaxHealth() {
+        return maxHealth;
     }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public void setMaxHealth(float maxHealth) {
+        this.maxHealth = maxHealth;
+    }
+
+    public void setHealth(float health) {
+        this.health = health;
+    }
+
+    public void updateMaxHealth() {
+        maxHealth = level * HP_PER_LEVEL;
+    }
+
 }

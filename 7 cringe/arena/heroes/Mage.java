@@ -1,25 +1,51 @@
 package arena.heroes;
 
 public class Mage extends Hero {
-    float mana;
-    float manaMax;
+    private float mana;
+    private float maxMana;
+    static final float MANA_PER_LEVEL = 25;
+    static final float MANA_PER_HIT = 5;
+
+    static final String MAGE_ATTACK_ALERT = "Маг запускает огненный шар!\n";
+    static final String MAGE_NO_MANA_LEFT = "🚨Не хватает маны, нужно отдохнуть!\n";
 
     public Mage(String name, int level, float health, float mana) {
         super(name, level, health);
-        this.manaMax = this.level * MANA_PER_LEVEL;
-        this.mana = Math.clamp(mana, 0, manaMax);
+        updateMaxMana();
+        mana = Math.clamp(mana, 0, maxMana);
     }
 
     @Override
     public void attack() {
-        System.out.println(Hero.mageAttackAlert);
+        System.out.println(MAGE_ATTACK_ALERT);
         System.out.println();
     }
 
     @Override
     public void levelUp() {
-        this.level = Math.min(++level, MAX_LEVEL);
-        this.healthMax = this.level * HP_PER_LEVEL;
-        this.manaMax = this.level * MANA_PER_LEVEL;
+        setLevel(Math.min(getLevel() + 1, MAX_LEVEL));
+        updateMaxHealth();
+        updateMaxMana();
+    }
+
+    @Override
+    public void attack(boolean isInTheGame) {
+        if (mana >= MANA_PER_HIT) {
+            System.out.println(MAGE_ATTACK_ALERT);
+            System.out.println();
+            mana -= MANA_PER_HIT;
+        } else {
+            System.out.println(MAGE_NO_MANA_LEFT);
+        }
+    }
+
+    public void updateMaxMana() {
+        maxMana = getLevel() * MANA_PER_LEVEL;
+    }
+
+    @Override
+    public void rest(boolean isInTheGame) {
+        setHealth(getMaxHealth());
+        mana = maxMana;
     }
 }
