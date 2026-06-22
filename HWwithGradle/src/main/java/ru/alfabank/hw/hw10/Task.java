@@ -3,21 +3,26 @@ package ru.alfabank.hw.hw10;
 public class Task {
 
     private String name;
-    private boolean isDone = false;
+    private boolean isDone;
 
-    public void markTaskAsDone() {
+    public Task(String name) {
+        this.name = name;
+        this.isDone = false;
+    }
+
+    public void markAsDone() {
         isDone = true;
     }
 
-    public boolean getTaskStatus() {
+    public boolean getStatus() {
         return isDone;
     }
 
-    public String getTaskName() {
+    public String getName() {
         return name;
     }
 
-    public String getTaskInfo() {
+    public String getInfo() {
         return isDone ? "[] Проверить авторизацию" : "[] Проверить регистрацию";
     }
 
