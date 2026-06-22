@@ -1,10 +1,11 @@
 package ru.alfabank.hw.hw10;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TaskTracker {
 
-    private List<Task> taskList;
+    private final List<Task> taskList = new ArrayList<>();
 
     public void addTask(Task task) {
         taskList.add(task);
@@ -39,14 +40,14 @@ public class TaskTracker {
         return taskFinder(name).getStatus();
     }
 
-    public Boolean printTaskInfo(String name) {
+    public void printTaskInfo() {
         int doneTaskNumber = 0;
 
         for (Task t : taskList) {
             doneTaskNumber += t.getStatus() ? 1 : 0;
         }
 
-        System.out.printf(String.format("Всего задач: % Выполнено: % Открыто %",
+        System.out.printf(String.format("Всего задач: %d Выполнено: %d Открыто %d",
                 taskList.size(),
                 doneTaskNumber,
                 Math.abs(taskList.size() - doneTaskNumber)));
