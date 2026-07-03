@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/out/production/java18iq" />
+    <output-test url="file://$MODULE_DIR$/out/test/java18iq" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/1 Shawarma" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/2 Scammer" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/3 MarketingResearch_PasswordCheck" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/4 cringe" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/5 cringe" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/6 cringe" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/7 cringe" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/8 cringe" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/_crossreview" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/9+ (HW with Gradle)" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java/ru/alfabank/_crossreview" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java/ru/alfabank/hw" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java/ru/alfabank/hw/1 Shawarma" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java/ru/alfabank/hw/2 Scammer" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java/ru/alfabank/hw/3 MarketingResearch_PasswordCheck" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java/ru/alfabank/hw/4 cringe" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java/ru/alfabank/hw/5 cringe" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java/ru/alfabank/hw/6 cringe" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java/ru/alfabank/hw/7 cringe" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java/ru/alfabank/hw/8 cringe" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
