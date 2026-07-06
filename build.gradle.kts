@@ -39,6 +39,8 @@ tasks.withType<JavaExec>().configureEach {
     systemProperty("file.encoding", "UTF-8")
     systemProperty("console.encoding", "UTF-8")
     systemProperty("stdout.encoding", "UTF-8")
+    // Дополнительные настройки для корректного вывода в консоль
+    jvmArgs("-Dfile.encoding=UTF-8", "-Dsun.stdout.encoding=UTF-8", "-Dsun.stderr.encoding=UTF-8")
 }
 
 // Настройка для чистого вывода
@@ -46,4 +48,6 @@ tasks.named<JavaExec>("run") {
     // Выключаем логи Gradle уровня INFO и ниже
     logging.captureStandardOutput(LogLevel.QUIET)
     logging.captureStandardError(LogLevel.QUIET)
+    // Принудительно устанавливаем кодировку
+    systemProperty("file.encoding", "UTF-8")
 }
