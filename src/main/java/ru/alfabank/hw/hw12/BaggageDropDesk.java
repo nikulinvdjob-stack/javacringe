@@ -9,10 +9,8 @@ public class BaggageDropDesk {
         this.availableFlights = availableFlights;
     }
 
-    public BaggageTicket CheckBaggage(String passengerName, String flightNumber, float baggageWeight)
+    public BaggageTicket CheckBaggage(String passengerName, String flightNumber, int baggageWeight)
             throws
-            InvalidPassengerNameException,
-            InvalidBaggageWeightException,
             OverweightBaggageException,
             FlightNotFoundException,
             BaggageTagPrintException {
@@ -23,7 +21,7 @@ public class BaggageDropDesk {
         if (baggageWeight < 0)
             throw new InvalidBaggageWeightException("Провоз антиматерии на борт летного судна запрещен");
 
-        if (baggageWeight > 23.0f)
+        if (baggageWeight > 23)
             throw new OverweightBaggageException("Кирпичи везем?");
 
         if (!availableFlights.contains(flightNumber))
@@ -32,8 +30,8 @@ public class BaggageDropDesk {
         if (flightNumber.equals("AE-404"))
             throw new BaggageTagPrintException("Купи принтер дороже трехсот рублей");
 
+        System.out.println("Все правильно. Налог.");
+
         return new BaggageTicket(passengerName, flightNumber, baggageWeight);
-
-
     }
 }

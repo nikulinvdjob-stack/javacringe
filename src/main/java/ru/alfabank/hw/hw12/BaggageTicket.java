@@ -3,9 +3,9 @@ package ru.alfabank.hw.hw12;
 public class BaggageTicket {
     private String passengerName;
     private String flightNumber;
-    private float baggageWeight;
+    private int baggageWeight;
 
-    public BaggageTicket(String passengerName, String flightNumber, float baggageWeight) {
+    public BaggageTicket(String passengerName, String flightNumber, int baggageWeight) {
         this.passengerName = passengerName;
         this.flightNumber = flightNumber;
         this.baggageWeight = baggageWeight;
@@ -19,7 +19,7 @@ public class BaggageTicket {
         return flightNumber;
     }
 
-    public float getBaggageWeight() {
+    public int getBaggageWeight() {
         return baggageWeight;
     }
 
