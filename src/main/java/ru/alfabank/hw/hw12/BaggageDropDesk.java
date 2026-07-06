@@ -9,11 +9,7 @@ public class BaggageDropDesk {
         this.availableFlights = availableFlights;
     }
 
-    public BaggageTicket CheckBaggage(String passengerName, String flightNumber, int baggageWeight)
-            throws
-            OverweightBaggageException,
-            FlightNotFoundException,
-            BaggageTagPrintException {
+    public BaggageTicket CheckBaggage(String passengerName, String flightNumber, int baggageWeight) throws OverweightBaggageException, FlightNotFoundException, BaggageTagPrintException {
 
         if (passengerName == null || passengerName.isEmpty())
             throw new InvalidPassengerNameException("Женя? Вы же девочка, что вы меня за дурака держите. Имя некорретное - исправьте!");

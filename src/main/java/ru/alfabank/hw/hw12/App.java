@@ -4,7 +4,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class App {
-    static void main() throws FlightNotFoundException, BaggageTagPrintException {
+
+    private static String simpleExceptionHandler(BaggageDropDesk baggageDropDesk, String name, String flight, int weight) {
+        try {
+            return baggageDropDesk.CheckBaggage(name, flight, weight).toString();
+        } catch (FlightNotFoundException e) {
+            System.err.println(e.getMessage());
+        } catch (BaggageTagPrintException e) {
+            System.err.println(e.getMessage());
+        } catch (OverweightBaggageException e) {
+            System.err.println(e.getMessage());
+        } catch (InvalidPassengerNameException e) {
+            System.err.println(e.getMessage());
+        } catch (InvalidBaggageWeightException e) {
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
+    private static String coolExceptionHandler(BaggageDropDesk baggageDropDesk, String name, String flight, int weight) {
+        try {
+            return baggageDropDesk.CheckBaggage(name, flight, weight).toString();
+        } catch (AirportServiceException e) {
+            System.err.println(e.getMessage());
+        } catch (RuntimeException e) {
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
+    static void main() {
 
         List<String> flights = new ArrayList<>();
 
@@ -15,89 +44,13 @@ public class App {
 
         BaggageDropDesk baggageDropDesk = new BaggageDropDesk(flights);
 
-        try {
-            System.out.println(
-                    baggageDropDesk.CheckBaggage(
-                            "Успешный пассажир",
-                            "SU-123",
-                            21.34f).toString());
-        } catch (AirportServiceException e) {
-            System.err.println("Ошибка сервиса: " + e.getMessage());
-        } catch (RuntimeException e) {
-            System.err.println("Ошибка валидации: " + e.getMessage());
-        }
+        System.out.println(simpleExceptionHandler(baggageDropDesk, "Успешный пассажир", "SU-123", 21));
+        System.out.println(simpleExceptionHandler(baggageDropDesk, "Пассажир с несуществующим рейсом", "DEBIK-67", 21));
 
-        try {
-            System.out.println(
-                    baggageDropDesk.CheckBaggage(
-                            "Пассажир с несуществующим рейсом",
-                            "DEBIK-67",
-                            21.34f).toString());
-        } catch (AirportServiceException e) {
-            System.err.println("Ошибка сервиса: " + e.getMessage());
-        } catch (RuntimeException e) {
-            System.err.println("Ошибка валидации: " + e.getMessage());
-        }
-
-        try {
-            System.out.println(
-                    baggageDropDesk.CheckBaggage(
-                            "Пассажир с тяжелым багажом",
-                            "TU-777",
-                            23.01f).toString());
-        } catch (AirportServiceException e) {
-            System.err.println("Ошибка сервиса: " + e.getMessage());
-        } catch (RuntimeException e) {
-            System.err.println("Ошибка валидации: " + e.getMessage());
-        }
-
-        try {
-
-            System.out.println(
-                    baggageDropDesk.CheckBaggage(
-                            "Пассажир с дешевым принтером",
-                            "AE-404",
-                            21.01f).toString());
-        } catch (AirportServiceException e) {
-            System.err.println("Ошибка сервиса: " + e.getMessage());
-        } catch (RuntimeException e) {
-            System.err.println("Ошибка валидации: " + e.getMessage());
-        }
-
-        try {
-            System.out.println(
-                    baggageDropDesk.CheckBaggage(
-                            "",
-                            "KC-909",
-                            21.01f).toString());
-        } catch (AirportServiceException e) {
-            System.err.println("Ошибка сервиса: " + e.getMessage());
-        } catch (RuntimeException e) {
-            System.err.println("Ошибка валидации: " + e.getMessage());
-        }
-
-        try {
-            System.out.println(
-                    baggageDropDesk.CheckBaggage(
-                            null,
-                            "KC-909",
-                            21.01f).toString());
-        } catch (AirportServiceException e) {
-            System.err.println("Ошибка сервиса: " + e.getMessage());
-        } catch (RuntimeException e) {
-            System.err.println("Ошибка валидации: " + e.getMessage());
-        }
-
-        try {
-            System.out.println(
-                    baggageDropDesk.CheckBaggage(
-                            "Пассажир с отрицательным весом багажа",
-                            "KC-909",
-                            -1.01f).toString());
-        } catch (AirportServiceException e) {
-            System.err.println("Ошибка сервиса: " + e.getMessage());
-        } catch (RuntimeException e) {
-            System.err.println("Ошибка валидации: " + e.getMessage());
-        }
+        System.out.println(coolExceptionHandler(baggageDropDesk, "Пассажир с тяжелым багажом", "TU-777",24));
+        System.out.println(coolExceptionHandler(baggageDropDesk,"Пассажир с дешевым принтером", "AE-404", 21));
+        System.out.println(coolExceptionHandler(baggageDropDesk,"","KC-909",21));
+        System.out.println(coolExceptionHandler(baggageDropDesk,null,"KC-909",21));
+        System.out.println(coolExceptionHandler(baggageDropDesk,"Пассажир с отрицательным весом багажа","KC-909",-1));
     }
 }
