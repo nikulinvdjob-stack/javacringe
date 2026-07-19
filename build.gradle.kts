@@ -1,3 +1,6 @@
+import org.gradle.kotlin.dsl.dependencies
+import org.gradle.kotlin.dsl.repositories
+
 plugins {
     id("java")
     id("application")
@@ -51,3 +54,4 @@ tasks.named<JavaExec>("run") {
     // Принудительно устанавливаем кодировку
     systemProperty("file.encoding", "UTF-8")
 }
+

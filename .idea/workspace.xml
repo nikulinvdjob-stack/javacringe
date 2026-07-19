@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18f172ae-c044-4e92-851b-29dafdc83e15" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alfabank/hw/hw13/Alien.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alfabank/hw/hw13/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alfabank/hw/hw13/AssaultQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alfabank/hw/hw13/MissionReport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alfabank/hw/hw13/SquadManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alfabank/hw/hw14/Movie/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alfabank/hw/hw14/Movie/Movie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alfabank/hw/hw14/Movie/MovieRatingComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alfabank/hw/hw14/Tests/XMLUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/alfabank/hw/hw14/Tests/XMLUtilsTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +26,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -77,65 +80,44 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.Build java18iq.executor": "Run",
+    "Gradle.XMLUtilsTest.executor": "Run",
     "Gradle.java18iq [:ru.alfabank.hw.hw11.App.main()].executor": "Run",
     "Gradle.java18iq [:ru.alfabank.hw.hw12.App.main()].executor": "Run",
     "Gradle.java18iq [:ru.alfabank.hw.hw13.App.main()].executor": "Run",
     "Gradle.java18iq [:ru.alfabank.hw.hw13.main.main()].executor": "Run",
+    "Gradle.java18iq [:ru.alfabank.hw.hw14.App.main()].executor": "Run",
+    "JUnit.XMLUtilsTest.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true"
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.ru.alfabank.hw.hw13.App">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.alfabank.hw.hw11.App" />
-      <module name="HWwithGradle.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.alfabank.hw.hw11.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.alfabank.hw.hw10.Main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.alfabank.hw.hw10.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ru.alfabank.hw.hw14.Tests" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.XMLUtilsTest">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.alfabank.hw.hw13.main" />
       <module name="HWwithGradle.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ru.alfabank.hw.hw13.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ru.alfabank.hw.hw12.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.alfabank.hw.hw12.App" />
-      <module name="HWwithGradle.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.alfabank.hw.hw12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -156,13 +138,68 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ru.alfabank.hw.hw14.Movie.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.alfabank.hw.hw14.Movie.App" />
+      <module name="HWwithGradle.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.alfabank.hw.hw14.Movie.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="XMLUtilsTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.alfabank.hw.hw14.Tests.XMLUtilsTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="XMLUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HWwithGradle.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.alfabank.hw.hw14.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.alfabank.hw.hw14.Tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.alfabank.hw.hw14.Tests.XMLUtilsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.XMLUtilsTest" />
+        <item itemvalue="JUnit.XMLUtilsTest" />
+        <item itemvalue="Application.ru.alfabank.hw.hw14.Movie.App" />
         <item itemvalue="Application.ru.alfabank.hw.hw13.App" />
         <item itemvalue="Application.main" />
-        <item itemvalue="Application.ru.alfabank.hw.hw12.App" />
-        <item itemvalue="Application.App" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
